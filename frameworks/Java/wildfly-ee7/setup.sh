@@ -18,7 +18,8 @@ sudo fuser -k 8443/tcp &
 sudo fuser -k 9993/tcp &
 
 echo "======== 삽질 ======" 
-
+#ping 0.0.0.0:8080
+echo "========   ========"
 
 target/wildfly-9.0.1.Final/bin/standalone.sh -b 0.0.0.0 &
 
