@@ -9,7 +9,7 @@ echo "=========== 특별출현 ==========="
 ls -al
 
 echo "=========== 포트정검 ==========="
-netstat -anp | grep 8080
+sudo netstat -anp | grep 8080
 
 target/wildfly-9.0.1.Final/bin/standalone.sh -b 0.0.0.0 &
 echo "파리새끼 완료!"
