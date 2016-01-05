@@ -10,7 +10,7 @@ ls -al
 
 echo "=========== 포트정검 ==========="
 
-fuser 8080/tcp &
+sudo fuser -k 8080/tcp &
 
 target/wildfly-9.0.1.Final/bin/standalone.sh -b 0.0.0.0 &
 
