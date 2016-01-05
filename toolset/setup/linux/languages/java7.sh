@@ -2,6 +2,7 @@
 
 RETCODE=$(fw_exists ${IROOT}/java7.installed)
 [ ! "$RETCODE" == 0 ] || { \
+  echo "자바 존재한"
   # Load environment variables
   source $IROOT/java7.installed
   return 0; }
@@ -22,3 +23,5 @@ echo "export JAVA_HOME=/usr/lib/jvm/java-7-oracle" > $IROOT/java7.installed
 echo -e "export PATH=\$JAVA_HOME/bin:\$PATH" >> $IROOT/java7.installed
 
 source $IROOT/java7.installed
+
+echo "자바 설치 완료"
