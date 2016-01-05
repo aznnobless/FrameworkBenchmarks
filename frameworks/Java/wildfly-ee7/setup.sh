@@ -6,4 +6,4 @@ export JAVA_OPTS="-Xms2g -Xmx2g -XX:MaxPermSize=256m -XX:+UseG1GC -XX:MaxGCPause
 echo "메이븐 이니셜"
 mvn clean initialize package -Pbenchmark -Ddatabase.host=${DBHOST}
 target/wildfly-9.0.1.Final/bin/standalone.sh -b 0.0.0.0 &
-echo "파리새끼 완료"
+echo "파리새끼 완료!"
