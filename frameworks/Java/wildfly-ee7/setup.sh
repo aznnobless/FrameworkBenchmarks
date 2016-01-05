@@ -9,8 +9,11 @@ echo "=========== 특별출현 ==========="
 ls -al
 
 echo "=========== 포트정검 ==========="
-
-sudo fuser -k 8080/tcp &
+sudo fuser -k 9990/tcp
+sudo fuser -k 8009/tcp 
+sudo fuser -k 8080/tcp
+sudo fuser -k 8443/tcp
+sudo fuser -k 9993/tcp 
 
 target/wildfly-9.0.1.Final/bin/standalone.sh -b 0.0.0.0 &
 
