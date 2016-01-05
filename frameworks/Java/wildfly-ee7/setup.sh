@@ -13,8 +13,8 @@ echo ${DBHOST}
 
 echo "=========== 포트정검 ==========="
 sudo fuser -k 9990/tcp &
-sudo fuser -k 8009/tcp &
-sudo fuser -k 8080/tcp &
+sudo fuser -n tcp -k 8009 &
+sudo fuser -n tcp -k 8080 &
 sudo fuser -k 8443/tcp &
 sudo fuser -k 9993/tcp &
 
