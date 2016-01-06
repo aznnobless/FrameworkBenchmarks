@@ -13,21 +13,21 @@
 start(_Type, _Args) ->
         crypto:start(),
         application:start(emysql),
-        emysql:add_pool(test_pool, 5000,
+        emysql:add_pool(test_pool, 256,
           "benchmarkdbuser", "benchmarkdbpass", "localhost", 3306,
           "hello_world", utf8),
-	emysql:prepare(db_stmt, <<"SELECT * FROM World where id = ?">>),
-	Dispatch = cowboy_router:compile([
-		{'_', [
-			{"/json", json_handler, []},
-			{"/db", db_handler, []},
+  emysql:prepare(db_stmt, <<"SELECT * FROM World where id = ?">>),
+  Dispatch = cowboy_router:compile([
+    {'_', [
+      {"/json", json_handler, []},
+      {"/db", db_handler, []},
       {"/query", query_handler, []}
-		]}
-	]),
-	{ok, _} = cowboy:start_http(http, 5000, [{port, 8080}], [
-		{env, [{dispatch, Dispatch}]}
-	]),
-	hello_world_sup:start_link().
+    ]}
+  ]),
+  {ok, _} = cowboy:start_http(http, 256, [{port, 8080}], [
+    {env, [{dispatch, Dispatch}]}
+  ]),
+  hello_world_sup:start_link().
 
 stop(_State) ->
-	ok.
+  ok.
