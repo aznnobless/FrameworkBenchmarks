@@ -15,9 +15,9 @@ sudo rm -rf _build deps
 echo "리무브후"
 
 export MIX_ENV=prod
-sudo mix local.hex --force
-sudo mix deps.get --force
-sudo mix compile --force
+mix local.hex --force
+mix deps.get --force
+mix compile --force
 
 echo "포닉스 서버 시작!"
 sudo elixir --detached -S mix phoenix.server
