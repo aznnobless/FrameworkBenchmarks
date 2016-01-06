@@ -181,11 +181,11 @@ env:
     # - "TESTDIR=Ur/urweb"
 
 before_install:
-  - sudo -H pip install colorama==0.3.1
+  - sudo pip install colorama==0.3.1
   # Version 2.3 has a nice Counter() and other features
   # but it requires —-allow-external and -—allow-unverified
-  - sudo -H pip install progressbar==2.2
-  - sudo -H pip install requests
+  - sudo pip install progressbar==2.2
+  - sudo pip install requests
   - echo "127.0.0.1 " `hostname` | sudo tee /etc/hosts
   - echo "127.0.0.1 localhost" | sudo tee /etc/hosts
 

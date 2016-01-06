@@ -4,7 +4,7 @@ echo "포닉스 시작"
 
 fw_depends elixir
 
-echo "엘릭서 설치 완료!"
+echo "엘릭서 설치 완료!!!"
 
 # read prod.exs 
 #sudo sed -i 's|localhost|'${DBHOST}'|g' config/prod.exs
