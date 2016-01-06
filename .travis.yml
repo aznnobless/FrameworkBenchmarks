@@ -188,7 +188,7 @@ before_install:
   # Version 2.3 has a nice Counter() and other features
   # but it requires —-allow-external and -—allow-unverified
   - pip install progressbar==2.2
-  - pip install requests
+  - pip install requests==2.9.1
   - echo "127.0.0.1 " `hostname` | sudo tee /etc/hosts
   - echo "127.0.0.1 localhost" | sudo tee /etc/hosts
 
