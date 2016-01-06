@@ -1,11 +1,7 @@
 #!/bin/bash
 
-echo "파리새끼시작"
-echo "DBHOST::: ""${DBHOST}"
 fw_depends java7 maven
-echo "메이븐설치완료"
 export JAVA_OPTS=" -Djava.net.preferIPv4Stack=true -Xms2g -Xmx2g -XX:MaxPermSize=256m -XX:+UseG1GC -XX:MaxGCPauseMillis=25 -verbosegc -Xloggc:/tmp/wildfly_gc.log"
-echo "메이븐 이니셜"
 mvn clean initialize package -Pbenchmark -Ddatabase.host=${DBHOST}
 
 # echo "=========== 포트정검 ==========="
@@ -21,4 +17,3 @@ mvn clean initialize package -Pbenchmark -Ddatabase.host=${DBHOST}
 
 target/wildfly-9.0.1.Final/bin/standalone.sh -b 0.0.0.0 &
 
-echo "파리새끼 완료!"
