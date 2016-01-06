@@ -29,4 +29,5 @@ python --version
 #sudo pip install elasticsearch==1.6.0
 #sudo pip install --upgrade setuptools #Possible try
 echo "=========="
-erl +K true -pa ebin deps/*/ebin +sbwt very_long +swt very_low -s hello_world -noshell -detached
+#erl +K true -pa ebin deps/*/ebin +sbwt very_long +swt very_low -s hello_world -noshell -detached
+erl +K true +sbwt very_long +swt very_low -pa ebin deps/*/ebin -boot start_sasl -s hello_world -noshell -detached
