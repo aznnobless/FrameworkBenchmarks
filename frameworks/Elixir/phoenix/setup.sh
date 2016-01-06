@@ -6,7 +6,10 @@ fw_depends elixir
 
 echo "엘릭서 설치 완료"
 
-sudo sed -i 's|localhost|'${DBHOST}'|g' config/prod.exs
+# read prod.exs 
+#sudo sed -i 's|localhost|'${DBHOST}'|g' config/prod.exs
+sed -i 's|localhost|'${DBHOST}'|g' config/prod.exs
+sed -i 's|localhost|'${DBHOST}'|g' test.txt
 
 echo "데이터베이스 ::: ${DBHOST}"
 

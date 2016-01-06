@@ -2,6 +2,10 @@
 
 fw_depends erlang
 
+echo "===== 브레이킹 포인트 ====="
+ls -al
+echo "===== ====="
+
 RETCODE=$(fw_exists ${IROOT}/elixir.installed)
 [ ! "$RETCODE" == 0 ] || { \
   source $IROOT/elixir.installed
