@@ -25,5 +25,6 @@ rebar compile
 
 echo "프레임워크시작"
 python --version
+sudo pip install elasticsearch==1.6.0
 echo "=========="
 erl -pa ebin deps/*/ebin +sbwt very_long +swt very_low -s hello_world -noshell -detached
