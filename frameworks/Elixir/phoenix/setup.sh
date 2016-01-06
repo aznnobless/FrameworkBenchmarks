@@ -19,7 +19,7 @@ mix local.hex --force
 mix deps.get --force
 mix compile --force
 
-echo "포닉스 서버 시작!"
+echo "포닉스 서버 시작!!"
 elixir --detached -S mix phoenix.server
 
 echo "포닉스 셋업파일 끝"
