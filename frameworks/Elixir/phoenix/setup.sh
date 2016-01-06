@@ -9,7 +9,6 @@ echo "엘릭서 설치 완료"
 # read prod.exs 
 #sudo sed -i 's|localhost|'${DBHOST}'|g' config/prod.exs
 sed -i 's|localhost|'${DBHOST}'|g' config/prod.exs
-sed -i 's|localhost|'${DBHOST}'|g' test.txt
 
 echo "데이터베이스 ::: ${DBHOST}"
 
