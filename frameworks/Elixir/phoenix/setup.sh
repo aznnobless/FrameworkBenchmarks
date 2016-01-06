@@ -20,6 +20,6 @@ mix deps.get --force
 mix compile --force
 
 echo "포닉스 서버 시작!"
-sudo elixir --detached -S mix phoenix.server
+elixir --detached -S mix phoenix.server
 
 echo "포닉스 셋업파일 끝"
