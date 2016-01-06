@@ -6,6 +6,8 @@
 #   It must be original author's mistake.
 #   I will fix this later with better solution.
 #
+#   dummy change
+#
 #   blee@techempower.com
 #
 sed -i 's|"benchmarkdbpass", ".*", 3306|"benchmarkdbpass", "'"${DBHOST}"'", 3306|g' src/hello_world_app.erl
