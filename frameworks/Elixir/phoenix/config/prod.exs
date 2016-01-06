@@ -11,7 +11,7 @@ config :hello, Hello.Repo,
   username: "benchmarkdbuser",
   password: "benchmarkdbpass",
   database: "hello_world",
-  hostname: "0.0.0.0",
+  hostname: "127.0.0.1",
   pool_size: 256
 
 # ## SSL Support
