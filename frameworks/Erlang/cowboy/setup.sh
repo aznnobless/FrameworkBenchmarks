@@ -18,13 +18,15 @@ fw_depends erlang
 
 echo "얼렝 설치완료"
 
-rm -rf deps/* ebin/*
+sudo rm -rf deps/* ebin/*
 echo "쓸대없는것 정리후 컴파일시작준비중"
 rebar get-deps
+echo "디펜던시처리끝 컴파일시작"
 rebar compile
 
 echo "프레임워크시작"
 python --version
-sudo pip install elasticsearch==1.6.0
+#sudo pip install elasticsearch==1.6.0
+#sudo pip install --upgrade setuptools #Possible try
 echo "=========="
-erl -pa ebin deps/*/ebin +sbwt very_long +swt very_low -s hello_world -noshell -detached
+erl +K true -pa ebin deps/*/ebin +sbwt very_long +swt very_low -s hello_world -noshell -detached
