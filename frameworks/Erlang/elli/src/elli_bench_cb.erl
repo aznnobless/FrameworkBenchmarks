@@ -1,5 +1,5 @@
 -module(elli_bench_cb).
--export([handle/2, handle_event/3, range_check/1]).
+-export([handle/2, handle_event/3, range_check/1, queries/1]).
 
 -include_lib("elli/include/elli.hrl").
 -behaviour(elli_handler).
