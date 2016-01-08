@@ -1,5 +1,5 @@
 -module(elli_bench_cb).
--export([handle/2, handle_event/3, param_eval/1]).
+-export([handle/2, handle_event/3, range_check/1]).
 
 -include_lib("elli/include/elli.hrl").
 -behaviour(elli_handler).
@@ -8,27 +8,16 @@
 
 %% This function is poor approach because this function is defined imperative language way.
 %% If you are familiar with Erlang, please modify this function
-%% Purpose of this function is to distinguish parameter value for the multiple query test.
-param_eval(S) ->
-    %%I = list_to_integer(S),
-    I = 1,
-    T = is_integer(S),
+%% Purpose of this function is to check number's range that will be used by multi query test
+range_check(num) ->
     if
-        T == false ->
-            I = 1;
-        T == true ->
-            I = 2
-    end,
-    I.
-
-% param_eval2(S) ->
-%     I = string:to_integer(S),
-%     trim_param(I).
-
-% trim_param({IntValue, Rest}) ->
-%     IntValue;
-% trim_param({error, Reason}) ->
-%     1.
+        num < 1 ->
+            1;
+        num > 500 ->
+            500;
+        true ->
+            num
+    end.
 
 handle(Req, _Args) ->
     %% Delegate to our handler function
@@ -61,6 +50,7 @@ handle('GET',[<<"db">>], Req) ->
 		end,
     {ok, [{<<"Content-Type">>, <<"application/json">>}], jiffy:encode(lists:nth(1,JSON))};
 
+%% TODO : Finish this function.
 %% Multiple query test route
 handle('GET',[<<"query">>], Req) ->
         random:seed(erlang:now()),
@@ -75,10 +65,13 @@ handle('GET',[<<"query">>], Req) ->
             %I = list_to_integer(binary_to_list(N)),
             I = 1,
             try
-                I = list_to_integer(N)
+                I = range_check( list_to_integer(N) )
             catch error:badarg ->
                 false
             end,
+
+
+            %% This return value is not correct. Need to return list widh I elements.
             Res = [ {[{<<"id">>, ID}, {<<"randomNumber">>, Rand}]} || 
                     {result_packet, _, _, [[ID, Rand]], _} <- [emysql:execute(test_pool, db_stmt, [random:uniform(500)]) || _ <- lists:seq(1, I) ]],
             Res
